@@ -1,0 +1,9 @@
+C:\Users\user\source\repos\pi182\pi182_20190925\Build\pi182_20190925_WinForms.exe.config
+C:\Users\user\source\repos\pi182\pi182_20190925\Build\pi182_20190925_WinForms.exe
+C:\Users\user\source\repos\pi182\pi182_20190925\Build\pi182_20190925_WinForms.pdb
+C:\Users\user\source\repos\pi182\pi182_20190925\pi182_20190925_WinForms\obj\Debug\pi182_20190925_WinForms.csprojAssemblyReference.cache
+C:\Users\user\source\repos\pi182\pi182_20190925\pi182_20190925_WinForms\obj\Debug\pi182_20190925_WinForms.Properties.Resources.resources
+C:\Users\user\source\repos\pi182\pi182_20190925\pi182_20190925_WinForms\obj\Debug\pi182_20190925_WinForms.csproj.GenerateResource.cache
+C:\Users\user\source\repos\pi182\pi182_20190925\pi182_20190925_WinForms\obj\Debug\pi182_20190925_WinForms.csproj.CoreCompileInputs.cache
+C:\Users\user\source\repos\pi182\pi182_20190925\pi182_20190925_WinForms\obj\Debug\pi182_20190925_WinForms.exe
+C:\Users\user\source\repos\pi182\pi182_20190925\pi182_20190925_WinForms\obj\Debug\pi182_20190925_WinForms.pdb
