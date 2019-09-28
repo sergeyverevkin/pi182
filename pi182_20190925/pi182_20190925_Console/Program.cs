@@ -19,9 +19,57 @@ namespace pi182_20190925
       Int32 i2 = 10;
       #endregion
 
-      h_ShowIfElse();
+      // h_ShowIfElse();
+      h_ShowLoops();
 
       h_WaitForKeyPress();
+    }
+
+    private static void h_ShowLoops()
+    {
+      #region for correct
+      int iCount = 10;
+      int jj = 0;
+      for (
+        int ii = 0;   // #1 инициализация цикла
+        ii < iCount;  // #2 условие продложения выполнения
+        ii++          // #3 выражение, которое выполняется после тела цикла на каждой итерации
+      ) {
+        // #4 тело цикла
+        // 0 = {int jjOld = jj; jj = jj + 1; return jjOld;}
+        Console.WriteLine(jj++);
+        // 1 = {jj = jj + 1; return jj;}
+        Console.WriteLine(++jj);
+      }
+      #endregion
+
+      #region for incorrect
+      int kk = 0;
+      for (
+        ;// #1
+        true;// #2 
+             // #3
+      ) {
+        // #4 тело цикла
+        if (kk++ == 3) {
+          break;  // прекратить выполнение цикла
+        }
+        if (kk++ == 1) {
+          continue;  // перейти к следующей итерации цикла
+        }
+        Console.WriteLine(kk);
+      }
+
+      int ll = 1;
+      for (
+        ;// #1
+        ((ll = ll * 3) > 100) || DateTime.Now.DayOfWeek == DayOfWeek.Monday;// #2 
+        ll = ll * 3 // #3
+      ) {
+
+
+      }
+      #endregion
 
     }
 
@@ -89,51 +137,7 @@ namespace pi182_20190925
       */
       #endregion
 
-      #region for correct
-      int iCount = 10;
-      int jj = 0;
-      for (
-        int ii = 0;   // #1 инициализация цикла
-        ii < iCount;  // #2 условие продложения выполнения
-        ii++          // #3 выражение, которое выполняется после тела цикла на каждой итерации
-      ) {
-        // #4 тело цикла
-        // 0 = {int jjOld = jj; jj = jj + 1; return jjOld;}
-        Console.WriteLine(jj++);
-        // 1 = {jj = jj + 1; return jj;}
-        Console.WriteLine(++jj);
-      }
-      #endregion
-
-      #region for incorrect
-      int kk = 0;
-      for (
-        ;// #1
-        true;// #2 
-             // #3
-      ) {
-        // #4 тело цикла
-        if (kk++ == 3) {
-          break;  // прекратить выполнение цикла
-        }
-        if (kk++ == 1) {
-          continue;  // перейти к следующей итерации цикла
-        }
-        Console.WriteLine(kk);
-      }
-
-      int ll = 1;
-      for (
-        ;// #1
-        ((ll = ll * 3) > 100) || DateTime.Now.DayOfWeek == DayOfWeek.Monday;// #2 
-        ll = ll * 3 // #3
-      ) {
-
-
-      }
-      #endregion
-
-      return jj;
+      return 0;
     }
 
     private static void h_WaitForKeyPress()
