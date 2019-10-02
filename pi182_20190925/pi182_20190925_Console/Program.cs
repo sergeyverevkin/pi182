@@ -1,4 +1,6 @@
-﻿using System;
+﻿// https://github.com/sergeyverevkin/pi182
+using System;
+using System.Collections;
 
 namespace pi182_20190925
 {
@@ -20,9 +22,72 @@ namespace pi182_20190925
       #endregion
 
       // h_ShowIfElse();
-      h_ShowLoops();
+      // h_ShowLoops();
+      h_ShowArrays();
 
       h_WaitForKeyPress();
+    }
+
+    private static void h_ShowArrays()
+    {
+      //var X;
+      //var XX = new[] { XXX1, XXX2, XXX3 };
+      //@XXX1 = XXX;
+      // 1. Статические массивы
+      int[] ar1 =
+        new int[4]
+        { 1, 2, 34, 5 };
+      int[] ar2 = new int[4];
+      // индекс начинается с нуля
+      ar2[0] = 1;
+      // ar2[1] = default(int);
+
+      int[] ar3 = null;
+      ar3 = new[] {
+        1,
+        2,
+        3,
+        3,
+        3,
+        3,
+        45 };
+
+      Console.WriteLine("Enter item count");
+      string sLine = Console.ReadLine();
+      int iP;
+      if (Int32.TryParse(sLine, out iP)) {
+        int[] ar = new int[iP];
+        int iSum2 = 0;
+        for (int ii = 0; ii < ar.Length; ii++) {
+          ar[ii] = ii;
+          // ...
+          int iPP = ar[ii];
+          iSum2 += iPP;
+        }
+        Console.WriteLine(iSum2);
+      }
+
+      // 2. Динамические массивы: нетипизированные
+      // new ArrayList();
+      ArrayList arList1 = new ArrayList();
+      arList1.Add(10);
+      arList1.Add("10@2");
+      arList1.Add(DateTime.Now);
+      arList1.Insert(0, "qweqw");
+      arList1.RemoveAt(1);
+      arList1.Remove("qweqw");
+      arList1.Clear();
+      int iSum = 0;
+      for (int ii = 0; ii < arList1.Count; ii++) {
+        object iPP = arList1[ii];
+        if (iPP is int) {
+          iSum += (int)iPP;
+        }
+      }
+      Console.WriteLine(iSum);
+
+      // 3. Динамические массивы: типизированные
+      // foreach
     }
 
     private static void h_ShowLoops()
@@ -71,6 +136,36 @@ namespace pi182_20190925
       }
       #endregion
 
+      #region while
+      // цикл с предусловием
+      int i2 = 0;
+      while (i2 < 10) {
+        // 
+        i2++;
+      }
+
+
+      // вечный цикл
+      //while (true) {
+      //  // 
+      //}
+      // никогда не зайдем
+      //while (false) {
+      //  // 
+      //}
+
+      // цикл с постусловием
+      int ii2 = 10;
+      do {
+        ii2++;
+      } while (ii2 < 20);
+
+      // выполнится один раз
+      //do {
+      //  ii++;
+      //} while (false);
+
+      #endregion
     }
 
     private static int h_ShowIfElse()
@@ -91,7 +186,7 @@ namespace pi182_20190925
       int i1 = 10;
       int i2 = 20;
       int i3 = 30;
-      
+
       #region if else 
       if (i1 == 10) {
         // i1 = 10
