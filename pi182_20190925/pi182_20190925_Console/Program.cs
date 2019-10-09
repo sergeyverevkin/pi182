@@ -1,6 +1,7 @@
 ﻿// https://github.com/sergeyverevkin/pi182
 using System;
 using System.Collections;
+using System.Collections.Generic;
 
 namespace pi182_20190925
 {
@@ -23,9 +24,50 @@ namespace pi182_20190925
 
       // h_ShowIfElse();
       // h_ShowLoops();
-      h_ShowArrays();
+      // h_ShowArrays();
+      h_ShowDictionaries();
 
       h_WaitForKeyPress();
+    }
+
+    private static void h_ShowDictionaries()
+    {
+      // (key = value) []
+      Dictionary</*TKey: */string, /*TValue: */string> arDict =
+        new Dictionary<string, string>() {
+          { "black", "черный" },
+          { "white", "белый" },
+        };
+      arDict["blue"] = "синий";
+      arDict["red"] = "красный";
+      arDict.Add("green", "зеленый");
+
+      Dictionary<string, string>.KeyCollection arKeys = 
+        arDict.Keys;
+
+      foreach (string sKey in arKeys) {
+        Console.WriteLine($"{sKey} = {arDict[sKey]}");
+      }
+
+      string sText = "Those Red roses seems to be white enough";
+      string[] arWords =
+        sText.Split(new[] { ' ', ',' },
+        StringSplitOptions.RemoveEmptyEntries);
+      List<string> arWordList = new List<string>();
+      //for (int ii = 0; ii < arWords.Length; ii++) {
+      //  string sWord = arWords[ii];
+      //  // ...
+      //}
+      foreach (string sWord in arWords) {
+        string sWordLower = sWord.ToLower();
+        arWordList.Add(
+          arDict.ContainsKey(sWordLower)
+          ? arDict[sWordLower]
+          : sWord
+        );
+      }
+
+      Console.WriteLine(String.Join(" ", arWordList));
     }
 
     private static void h_ShowArrays()
@@ -56,15 +98,15 @@ namespace pi182_20190925
       string sLine = Console.ReadLine();
       int iP;
       if (Int32.TryParse(sLine, out iP)) {
-        int[] ar = new int[iP];
-        int iSum2 = 0;
-        for (int ii = 0; ii < ar.Length; ii++) {
-          ar[ii] = ii;
+        int[] ar0 = new int[iP];
+        int iSum3 = 0;
+        for (int ii = 0; ii < ar0.Length; ii++) {
+          ar0[ii] = ii;
           // ...
-          int iPP = ar[ii];
-          iSum2 += iPP;
+          int iPP = ar0[ii];
+          iSum3 += iPP;
         }
-        Console.WriteLine(iSum2);
+        Console.WriteLine(iSum3);
       }
 
       // 2. Динамические массивы: нетипизированные
@@ -87,6 +129,20 @@ namespace pi182_20190925
       Console.WriteLine(iSum);
 
       // 3. Динамические массивы: типизированные
+      List<string> ar = new List<string>();
+      ar.Add("qweq");
+      ar.Clear();
+      ar.Add("1");
+      ar.Remove("qweq");
+      ar.RemoveAt(0);
+      ar.Insert(0, "asasd");
+      int iSum2 = 0;
+      for (int ii = 0; ii < ar.Count; ii++) {
+        string sPP = ar[ii];
+        iSum2 += sPP.Length;
+      }
+      Console.WriteLine(iSum2);
+
       // foreach
     }
 
