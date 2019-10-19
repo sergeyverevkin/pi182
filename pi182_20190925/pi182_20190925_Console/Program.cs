@@ -25,9 +25,165 @@ namespace pi182_20190925
       // h_ShowIfElse();
       // h_ShowLoops();
       // h_ShowArrays();
-      h_ShowDictionaries();
+      // h_ShowDictionaries();
+
+      // h_ShowCountParts();
+      // h_ShowCountVowels();
+      // h_ShowCountWords();
+      h_ShowHashset();
 
       h_WaitForKeyPress();
+    }
+
+    private static void h_ShowHashset()
+    {
+      // Dictionary<int, bool> dict;
+      HashSet<int> hsIntegers = new HashSet<int>();
+      while (true) {
+        Console.WriteLine("Enter number");
+        string sS = Console.ReadLine();
+        int iNum;
+        if (!Int32.TryParse(sS, out iNum)) {
+          break;
+        }
+        // 1. добавляем число пользователя
+        if (!hsIntegers.Contains(iNum)) {
+          hsIntegers.Add(iNum);
+        }
+        // 2. добавляем количество чисел, которое запросил пользователь
+        for (int ii = 0; ii < iNum; ii++) {
+          if (!hsIntegers.Contains(ii)) {
+            hsIntegers.Add(ii);
+          }
+        }
+      }
+      Console.WriteLine("Enter searched number");
+      string sS2 = Console.ReadLine();
+      int iNum2;
+      if (Int32.TryParse(sS2, out iNum2)) {
+        bool bFound = true;
+        for (int jj = 0; jj < iNum2; jj++) {
+          bFound = hsIntegers.Contains(iNum2);
+        }
+        Console.WriteLine(
+          bFound ? "ok" : "not found"
+          );
+      }
+    }
+
+    private static void h_ShowCountWords()
+    {
+      // Посчитать количество слов, встречающихся в тексте
+      // больше 3 раз
+
+      string sText = "Шла Саша по шоссе и по шоссе и по шоссе и по шоссе и сосала сушку";
+      string[] arWords =
+        sText.Split(new[] { ' ', ',' },
+        StringSplitOptions.RemoveEmptyEntries);
+
+      List<string> arWordsList = new List<string>();
+
+      Dictionary<string, int> dictWordsCount =
+        new Dictionary<string, int>();
+
+      foreach (string sWord in arWords) {
+        string sW = sWord.ToLower().Trim();
+        if (!dictWordsCount.ContainsKey(sW)) {
+          dictWordsCount[sW] = 0;
+        }
+        dictWordsCount[sW]++;
+      }
+
+      foreach (string sWord in dictWordsCount.Keys) {
+        if (dictWordsCount[sWord] > 3) {
+          arWordsList.Add(sWord);
+        }
+      }
+
+      foreach (string sWord in arWordsList) {
+        Console.WriteLine(sWord);
+      }
+
+    }
+
+    private static void h_ShowCountParts()
+    {
+      // Посчитать количество слов со слогами "со", "са" и "су"
+      string sText = "Шла Саша по шоссе и сосала сушку";
+      string[] arWords =
+        sText.Split(new[] { ' ', ',' },
+        StringSplitOptions.RemoveEmptyEntries);
+      int iCount = 0;
+      foreach (string sWord in arWords) {
+        int iValue = h_GetValueOfWord(sWord);
+        if (iValue > 0) {
+          iCount++;
+        }
+      }
+    }
+
+    private static void h_ShowCountVowels()
+    {
+      // Посчитать количество слов с тремя гласными буквами
+      string sText = "Шла Саша по шоссе и сосала сушку";
+      string[] arWords =
+        sText.Split(new[] { ' ', ',' },
+        StringSplitOptions.RemoveEmptyEntries);
+      int iCount = 0;
+      foreach (string sWord in arWords) {
+        int iValue = h_GetValueOfVowelsCount(sWord);
+        if (iValue == 3) {
+          iCount++;
+        }
+      }
+    }
+
+    private static int h_GetValueOfVowelsCount(
+      string sWord)
+    {
+      int iCount = 0;
+      string sVowels = "уеыаоэяию";
+      char[] chVowels = new[] {
+        'у','е','ы','а','о','э','я',
+        'и','ю' };
+      //foreach (char ch in sVowels) {
+      //  string sChar = ch.ToString();
+      //  if (sWord.Contains(sChar)) {
+      //    iCount++;
+      //  }
+      //}
+      for (int ii = 0; ii < chVowels.Length; ii++) {
+        char ch = chVowels[ii];
+        for (int jj = 0; jj < sWord.Length; jj++) {
+          char chWord = sWord[jj];
+          if (chWord == ch) {
+            iCount++;
+          }
+        }
+      }
+
+      return iCount;
+    }
+
+    private static int h_GetValueOfWord(string sWord)
+    {
+      string[] arParts = { "са", "со", "су" };
+      int iCount = 0;
+      foreach (string sPart in arParts) {
+        int iNextIndex = -1;
+        do {
+          iNextIndex =
+            sWord.IndexOf(
+              sPart,
+              iNextIndex + 1,
+              StringComparison.InvariantCultureIgnoreCase
+              );
+          if (iNextIndex >= 0) {
+            iCount++;
+          }
+        } while (iNextIndex >= 0);
+      }
+      return iCount;
     }
 
     private static void h_ShowDictionaries()
@@ -42,7 +198,7 @@ namespace pi182_20190925
       arDict["red"] = "красный";
       arDict.Add("green", "зеленый");
 
-      Dictionary<string, string>.KeyCollection arKeys = 
+      Dictionary<string, string>.KeyCollection arKeys =
         arDict.Keys;
 
       foreach (string sKey in arKeys) {
