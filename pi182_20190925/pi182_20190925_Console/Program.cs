@@ -2,6 +2,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Text;
 
 namespace pi182_20190925
 {
@@ -30,9 +32,50 @@ namespace pi182_20190925
       // h_ShowCountParts();
       // h_ShowCountVowels();
       // h_ShowCountWords();
-      h_ShowHashset();
+      // h_ShowHashset();
+
+      // h_ShowStringsEncoding();
+
+      h_ShowClasses();
 
       h_WaitForKeyPress();
+    }
+
+    private static void h_ShowClasses()
+    {
+      throw new NotImplementedException();
+    }
+
+    private static void h_ShowStringsEncoding()
+    {
+      Encoding encAscii = Encoding.ASCII;
+      Encoding encUtf8 = Encoding.UTF8;
+      Encoding encDefault = Encoding.Default;
+      Encoding enc1251 = Encoding.GetEncoding(1251);
+
+      string sDir = @"d:\1\";
+      string sText = "English words и русские слова = 12";
+      string[] arF = new[] {
+        Path.Combine(sDir, "1.no.txt"),
+        Path.Combine(sDir, "2.ascii.txt"),
+        Path.Combine(sDir, "3.utf8.txt"),
+        Path.Combine(sDir, "4.1251.txt"),
+        Path.Combine(sDir, "5.default.txt"),
+      };
+      File.WriteAllText(arF[0], sText);
+      File.WriteAllText(arF[1], sText, encAscii);
+      File.WriteAllText(arF[2], sText, encUtf8);
+      File.WriteAllText(arF[3], sText, enc1251);
+      File.WriteAllText(arF[4], sText, encDefault);
+
+      Encoding[] arEnc = new[] { Encoding.Default, Encoding.ASCII, Encoding.UTF8, enc1251 };
+      foreach (string sF in arF) {
+        foreach (Encoding enc in arEnc) {
+          string sFileContent =
+            File.ReadAllText(sF, enc);
+        }
+      }
+
     }
 
     private static void h_ShowHashset()
