@@ -1,12 +1,15 @@
 ﻿// https://github.com/sergeyverevkin/pi182
+using pi182_20190925_classes;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using System.Threading;
 
 namespace pi182_20190925
 {
+
   /// <summary>
   /// Класс приложения
   /// </summary>
@@ -43,7 +46,30 @@ namespace pi182_20190925
 
     private static void h_ShowClasses()
     {
-      throw new NotImplementedException();
+      /*
+       2019-10-30
+        Задание:
+          Реализовать два класса (поля, свойства, метод)
+          подключить к консольному приложению
+          вызвать метод класса
+        Предметные области:
+          Банкнота, монета
+          Телефон мобильный, телефон стационарный
+          Аудитория лекционная, аудитория с компьютерами
+          Автобус, Маршрутное такси
+          Студент, Зачетная книжка
+          Съедобный товар, несъедобный товар
+          Товары в магазины
+          Компьютер и монитор
+          ...
+       */
+      Clock pC = new Clock();
+      pC.SetTime("19:12:59");
+      for (int ii = 0; ii < 60; ii++) {
+        pC.Tick();
+        Console.WriteLine(pC.GetTime());
+        Thread.Sleep(1000);
+      }
     }
 
     private static void h_ShowStringsEncoding()
