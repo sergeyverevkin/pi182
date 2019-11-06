@@ -1,5 +1,5 @@
 ﻿// https://github.com/sergeyverevkin/pi182
-using pi182_20190925_classes;
+using pi182_20190925_classes.Clock;
 using System;
 using System.Collections;
 using System.Collections.Generic;
