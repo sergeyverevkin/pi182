@@ -122,5 +122,14 @@ namespace pi182_20190925_WinForms
     private void pbClock_Paint(object sender, PaintEventArgs e)
     {
     }
+
+    private void button1_Click(object sender, EventArgs e)
+    {
+      using (AirControllerForm pForm = new AirControllerForm())
+      {
+        // модальный режим
+        pForm.ShowDialog(this);
+      }
+    }
   }
 }

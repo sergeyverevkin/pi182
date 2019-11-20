@@ -35,6 +35,11 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AirController\AirController.cs" />
+    <Compile Include="AirController\AirSensor.cs" />
+    <Compile Include="AirController\Enum\EActiveState.cs" />
+    <Compile Include="AirController\Enum\ESensorType.cs" />
+    <Compile Include="AirController\Enum\EMeasurementUnit.cs" />
     <Compile Include="Chess\ChessBoard.cs" />
     <Compile Include="Clock\SecondArrow.cs" />
     <Compile Include="Clock\MinuteArrow.cs" />
@@ -42,6 +47,9 @@
     <Compile Include="Clock\Arrow.cs" />
     <Compile Include="Clock\Clock.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AirController\Description.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
