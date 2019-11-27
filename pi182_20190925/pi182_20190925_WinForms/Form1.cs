@@ -131,5 +131,14 @@ namespace pi182_20190925_WinForms
         pForm.ShowDialog(this);
       }
     }
+
+    private void button2_Click(object sender, EventArgs e)
+    {
+      using (CorrectForm pForm = new CorrectForm()) {
+        // модальный режим
+        pForm.ShowDialog(this);
+      }
+
+    }
   }
 }
