@@ -140,5 +140,13 @@ namespace pi182_20190925_WinForms
       }
 
     }
+
+    private void button3_Click(object sender, EventArgs e)
+    {
+      using (ChessForm pForm = new ChessForm()) {
+        // модальный режим
+        pForm.ShowDialog(this);
+      }
+    }
   }
 }

@@ -41,6 +41,12 @@
     <Compile Include="AirController\Enum\ESensorType.cs" />
     <Compile Include="AirController\Enum\EMeasurementUnit.cs" />
     <Compile Include="Chess\ChessBoard.cs" />
+    <Compile Include="Chess\ChessFigure.cs" />
+    <Compile Include="Chess\Coord.cs" />
+    <Compile Include="Chess\EChessColor.cs" />
+    <Compile Include="Chess\Field.cs" />
+    <Compile Include="Chess\HorseChessFigure.cs" />
+    <Compile Include="Chess\SimpleChessFigure.cs" />
     <Compile Include="Clock\SecondArrow.cs" />
     <Compile Include="Clock\MinuteArrow.cs" />
     <Compile Include="Clock\HourArrow.cs" />
@@ -50,6 +56,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AirController\Description.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="NewFolder1\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
