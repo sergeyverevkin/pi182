@@ -53,12 +53,16 @@
     <Compile Include="Clock\Arrow.cs" />
     <Compile Include="Clock\Clock.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Task\EPriority.cs" />
+    <Compile Include="Task\EProcess.cs" />
+    <Compile Include="Task\EState.cs" />
+    <Compile Include="Task\Planner.cs" />
+    <Compile Include="Task\PlannerTask.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="AirController\Description.txt" />
+    <Content Include="Task\Description.txt" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="NewFolder1\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
