@@ -148,5 +148,13 @@ namespace pi182_20190925_WinForms
         pForm.ShowDialog(this);
       }
     }
+
+    private void button4_Click(object sender, EventArgs e)
+    {
+      using (SokobanForm pForm = new SokobanForm()) {
+        // модальный режим
+        pForm.ShowDialog(this);
+      }
+    }
   }
 }

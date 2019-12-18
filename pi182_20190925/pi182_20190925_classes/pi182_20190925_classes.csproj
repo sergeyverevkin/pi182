@@ -53,6 +53,11 @@
     <Compile Include="Clock\Arrow.cs" />
     <Compile Include="Clock\Clock.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Storage\Location.cs" />
+    <Compile Include="Storage\DynamicObject.cs" />
+    <Compile Include="Storage\Game.cs" />
+    <Compile Include="Storage\Object.cs" />
+    <Compile Include="Storage\StaticObject.cs" />
     <Compile Include="Task\EPriority.cs" />
     <Compile Include="Task\EProcess.cs" />
     <Compile Include="Task\EState.cs" />
@@ -61,6 +66,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AirController\Description.txt" />
+    <Content Include="Storage\Description.txt" />
     <Content Include="Task\Description.txt" />
   </ItemGroup>
   <ItemGroup />
